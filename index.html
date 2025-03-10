@@ -49,6 +49,9 @@
                 <H1 class="business-h">Effective Solutions for Your Business</H1>
                 <button type="button" class="business-button">Order Service</button>
             </div>
+
+            
+
         </section>
         <!-- конец первой секции -->
         
@@ -379,7 +382,82 @@
                         </li>
                     </ul>
                 </div>
+                <div class="footer-div-news">
+                    <p class="div-news">Subscribe</p>
+                    <form action="" class="footer-form">
+                        <label for="">
+                            <input type="text" class="footer-input-email" id="footer-input" name="footer-input" placeholder="E-mail">
+                        </label>
+                        <button type="submit" class="footer-btn-news">
+                            Subscribe
+                            <svg height="24" width="24" class="footer-btn-svg">
+                                <use href="./images/icons.svg#icon-teleg"></use>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
             </div>
     </footer>
+
+<!-- overlay -->
+
+<div class="overlay-sec is-open">
+    <div class="overlay-window">
+        <button class="window-btn-close">
+            <svg widht="4" height="4" class="over-icon">
+                <use href="./images/icons.svg#icon-cross"></use>
+            </svg>
+        </button>
+        <p class="overlay-p">Leave your contacts and we will call you back</p>
+
+        <form action="">
+            <div class="form-div">
+                <label for="user-name" class="label-text">Name</label>
+                <div class="div-input">
+                    <input type="text" name="user-name" class="form-input">
+                    <svg width="18" height="24" class="form-input-icon">
+                        <use href="./images/icons.svg#icon-person"></use>
+                    </svg>
+                </div>
+            </div>
+            <div class="form-div">
+                <label for="user-phone" class="label-text">Phone</label>
+                <div class="div-input">
+                    <input type="text" name="user-phone" class="form-input">
+                    <svg width="18" height="24" class="form-input-icon">
+                        <use href="./images/icons.svg#icon-tel"></use>
+                    </svg>
+                </div>
+            </div>
+            <div class="form-div">
+                <label for="user-email" class="label-text">Email</label>
+                <div class="div-input">
+                    <input type="text" name="user-email" class="form-input">
+                    <svg width="18" height="24" class="form-input-icon">
+                        <use href="./images/icons.svg#icon-mail"></use>
+                    </svg>
+                </div>
+            </div>
+            <div class="input-div-comment">
+                <label for="user-comment" class="text-comment">Comment</label>
+                <textarea name="user-comment" placeholder="Text input" class="form-textarea"></textarea>
+            </div>
+            <div class="form-checkbox">
+                <input type="checkbox" class="check-in" id="user-priv" name="user-priv" value="true">
+                <label for="user-priv" class="user-checkin">
+                    <span class="check-span">
+                        <svg width="10" height="8">
+                            <use href="./images/icons.svg#icon-check"></use>
+                        </svg>
+                    </span>
+                        I accept the terms and conditions of the 
+                    <a href="" class="protokol">Privacy Policy</a>
+                </label>
+            </div>
+            <button type="button" class="button-check">Sent</button>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>
