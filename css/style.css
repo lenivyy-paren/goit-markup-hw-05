@@ -750,6 +750,9 @@ input[type="checkbox"]:checked+.privacy-label .privacy-span {
     fill: #F4F4FD;
 }
 
+.user-privacy{
+    display: none;
+}
 
 .textarea-form {
     width: 100%;
