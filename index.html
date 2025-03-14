@@ -384,9 +384,9 @@
                 </div>
                 <div class="footer-div-news">
                     <p class="div-news">Subscribe</p>
-                    <form action="" class="footer-form">
-                        <label for="">
-                            <input type="text" class="footer-input-email" id="footer-input" name="footer-input" placeholder="E-mail">
+                    <form class="footer-form">
+                        <label class="footer-label">
+                            <input type="email" class="footer-input-email" id="footer-input" name="footer-input" placeholder="E-mail">
                         </label>
                         <button type="submit" class="footer-btn-news">
                             Subscribe
@@ -401,63 +401,70 @@
 
 <!-- overlay -->
 
-<div class="overlay-sec is-open">
-    <div class="overlay-window">
-        <button class="window-btn-close">
-            <svg widht="4" height="4" class="over-icon">
+<div class="backdrop is-open" data-menu-open>
+    <div class="modal">
+        <button class="modal-form-button" type="button" data-menu-close>
+            <svg class="close-button" width="8" height="8">
                 <use href="./images/icons.svg#icon-cross"></use>
             </svg>
         </button>
-        <p class="overlay-p">Leave your contacts and we will call you back</p>
-
-        <form action="">
-            <div class="form-div">
-                <label for="user-name" class="label-text">Name</label>
-                <div class="div-input">
-                    <input type="text" name="user-name" class="form-input">
-                    <svg width="18" height="24" class="form-input-icon">
+        <p class="text-modal">Leave your contacts and we will call you back</p>
+        <form class="form">
+            <div class="modal-div">
+                <label for="user-name" class="form-label">Name</label>
+                <div class="modal-input-div">
+                    <input class="input-class" type="text" id="user-name" name="user-name" />
+                    <svg class="modal-icon" width="18" height="24">
                         <use href="./images/icons.svg#icon-person"></use>
                     </svg>
                 </div>
             </div>
-            <div class="form-div">
-                <label for="user-phone" class="label-text">Phone</label>
-                <div class="div-input">
-                    <input type="text" name="user-phone" class="form-input">
-                    <svg width="18" height="24" class="form-input-icon">
+
+            <div class="modal-div">
+                <label for="user-name" class="form-label">Phone</label>
+                <div class="modal-input-div">
+                    <input class="input-class" type="text" id="user-phone" name="user-name" />
+                    <svg class="modal-icon" width="18" height="24">
                         <use href="./images/icons.svg#icon-tel"></use>
                     </svg>
                 </div>
             </div>
-            <div class="form-div">
-                <label for="user-email" class="label-text">Email</label>
-                <div class="div-input">
-                    <input type="text" name="user-email" class="form-input">
-                    <svg width="18" height="24" class="form-input-icon">
+            <div class="modal-div">
+                <label for="user-name" class="form-label">Email</label>
+                <div class="modal-input-div">
+                    <input class="input-class" type="text" id="user-email" name="user-name" />
+                    <svg class="modal-icon" width="18" height="24">
                         <use href="./images/icons.svg#icon-mail"></use>
                     </svg>
                 </div>
             </div>
-            <div class="input-div-comment">
-                <label for="user-comment" class="text-comment">Comment</label>
-                <textarea name="user-comment" placeholder="Text input" class="form-textarea"></textarea>
+            <div class="modal-div-comment">
+                <label for="user-comment" class="form-label">Comment</label>
+
+                <textarea id="user-comment" name="user-comment" placeholder="Text input"
+                    class="textarea-form"></textarea>
+
             </div>
-            <div class="form-checkbox">
-                <input type="checkbox" class="check-in" id="user-priv" name="user-priv" value="true">
-                <label for="user-priv" class="user-checkin">
-                    <span class="check-span">
-                        <svg width="10" height="8">
+
+
+            <div class="checkbox ">
+                <input type="checkbox" id="user-privacy" value="true" name="user-privacy"
+                    class="user-privacy visually-hidden" />
+                <label for="user-privacy" class="privacy-label">
+                    <span class="privacy-span">
+                        <svg class="icon" width="10" height="8">
                             <use href="./images/icons.svg#icon-check"></use>
                         </svg>
                     </span>
-                        I accept the terms and conditions of the 
-                    <a href="" class="protokol">Privacy Policy</a>
+                    I accept the terms and conditions of the
+                    <a href="" class="privacy-policy">Privacy Policy</a>
                 </label>
             </div>
-            <button type="button" class="button-check">Sent</button>
+            <button type="submit" class="submit-btn">Send</button>
         </form>
     </div>
 </div>
+</body>
 
 </body>
 </html>

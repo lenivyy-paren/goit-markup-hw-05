@@ -551,6 +551,7 @@ color: #F4F4FD;
 .footer-input-email {
     border: 1px solid #ffffff;
     border-radius: 4px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     min-width: 264px;
     height: 40px;
     font-weight: 400;
@@ -572,133 +573,185 @@ color: #F4F4FD;
 
 /* overlay start */
 
-.overlay-sec {
+.backdrop {
     position: fixed;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
-    z-index: 999;
     background-color: rgba(46, 47, 66, 0.4);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
     opacity: 0;
     visibility: hidden;
-    pointer-events: none; 
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+
 }
 
-.overlay-sec.is-open {
+.backdrop.is-open {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
 }
 
-.overlay-window {
+.modal {
     position: absolute;
     top: 50%;
     left: 50%;
+    padding: 72px 24px 24px 24px;
+    transform: translate(-50%, -50%);
+    background-color: #fcfcfc;
     width: 408px;
     min-height: 584px;
-    border-radius: 4px;
-    transform: translate(-50%, -50%);
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+        0 1px 3px 0 rgba(0, 0, 0, 0.12),
+        0 2px 1px 0 rgba(0, 0, 0, 0.2);
     background-color: #fcfcfc;
+    border-radius: 4px;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 72px 24px 24px 24px;
 }
 
-.window-btn-close {
-    width: 24px;
-    height: 24px;
-    background-color: #e7e9fc;
-    border-radius: 50%;
+.backdrop:not(.is-open) .modal {
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+.close-button {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-div {
+    margin-bottom: 8px;
+
+
+}
+
+.modal-form-button {
     position: absolute;
     top: 24px;
     right: 24px;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    border:  1px solid rgba(0, 0, 0, 0.1);
-    fill: #2E2F42;
-    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    background-color: #e7e9fc;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
-.window-btn-close:hover{
+.modal-form-button:hover,
+.modal-form-button:focus {
     background-color: #404BBF;
-}
-
-.over-icon {
-    fill: #2E2F42;
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    height: 100%;
-    width: 100%;
-}
-
-.over-icon:hover {
+    border: none;
     fill: #ffffff;
 }
 
-.overlay-p {
+.modal-div-comment {
+    margin-bottom: 16px
+}
+
+
+.modal-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: #2E2F42;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.input-class:focus+.modal-icon {
+    fill: #4D5AE5;
+}
+
+.modal-input-div {
+    position: relative;
+    margin-bottom: 8px;
+
+}
+
+.modal-icon:focus,
+.modal-icon:hover {
+    fill: #4D5AE5;
+}
+
+.modal-h {
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
     text-align: center;
-    color: #2E2F42;
+    color: #2e2f42;
+}
+
+.text-modal {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
     text-align: center;
-    margin-bottom: 16px;
+    color: #2e2f42;
 }
 
-.overlay-sec:not(.is-open) .overlay-window {
-    transform: translate(-50%, -50%) scale(1.5);
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
 }
 
-.label-text {
+.form-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     font-weight: 400;
     font-size: 12px;
-    line-height: 1.17;
-    letter-spacing: 0.04em;
-    color: #8E8F99;
-    display: block;
-    margin-bottom: 4px;
-}
-.div-input {
-    position: relative;
-}
-.form-input {
-    border: 1px solid #2E2F42;
-    border-radius: 4px;
-    width: 100%;
-    height: 40px;
-    padding-left: 38px;
-    background-color: transparent;
-    outline: transparent;
-    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.form-input-icon {
-    position: absolute;
-    top: 50%;
-    left: 16px;
-    fill: #2E2F42;
-    transform: translateY(-50%);
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.input-div-comment {
-    margin-bottom: 16px;
-}
-.text-comment {
-    font-weight: 400;
-    font-size: 12px;
+    line-height: 14px;
     line-height: 1.17;
     letter-spacing: 0.04em;
     color: #8e8f99;
     display: block;
     margin-bottom: 4px;
 }
-.form-textarea {
+
+.input-class:focus {
+    border-color: #4D5AE5;
+}
+
+
+
+.input-class {
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 4px;
+    height: 40px;
+    width: 100%;
+    background-color: transparent;
+    padding-left: 38px;
+    outline: transparent;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+input[type="checkbox"]:checked+.privacy-label .privacy-span {
+    background-color: #404bbf;
+    border: none;
+    fill: #F4F4FD;
+}
+
+
+.textarea-form {
     width: 100%;
     height: 120px;
     resize: none;
@@ -715,56 +768,48 @@ color: #F4F4FD;
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.form-checkbox {
+.textarea-form:focus {
+    border-color: #4D5AE5;
+}
+
+.checkbox {
     margin-bottom: 24px;
 }
-.check-in {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-}
-.user-checkin {
-    font-weight: 400;
+
+
+
+.privacy-label {
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.04em;
     color: #8e8f99;
-    margin-bottom: 24px;
 }
 
-.check-span {
-    display: inline-flex
-;
-    align-items: center;
-    justify-content: center;
-    fill: transparent;
-    margin-right: 8px;
+.privacy-label .privacy-span {
     width: 16px;
     height: 16px;
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 2px;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    fill: transparent;
 }
 
-.check-span:active {
-    background-color: #404BBF;
+.input:checked+.privacy-span {
+    background-color: #404bbf;
+    border: none;
+    fill: #f4f4fd;
+
 }
 
-.protokol {
-    line-height: 1.33;
-    text-decoration: underline;
-    text-decoration-skip-ink: none;
+.privacy-policy {
     color: #4d5ae5;
 }
 
-.button-check {
+.submit-btn {
     border-radius: 4px;
     padding: 16px 32px;
     min-width: 169px;
@@ -784,6 +829,40 @@ color: #F4F4FD;
     letter-spacing: 0.04em;
     text-align: center;
     color: #ffffff;
+}
+
+.submit-btn:hover {
+    background-color: #404BBF;
+
+}
+
+.submit-btn-close {
+    width: 24px;
+    height: 24px;
+    background-color: #e7e9fc;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    cursor: pointer;
+    fill: #2e2f42;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.svg-icon-modal {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.submit-btn-close:hover,
+.submit-btn-close:focus {
+    background-color: #404BBF;
+    fill: #ffffff;
+    border: none;
 }
 
 /* overlay end */
