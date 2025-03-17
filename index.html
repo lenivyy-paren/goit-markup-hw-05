@@ -47,7 +47,7 @@
         <section class="business"> 
             <div class="container">
                 <H1 class="business-h">Effective Solutions for Your Business</H1>
-                <button type="button" class="business-button">Order Service</button>
+                <button type="button" class="business-button" data-modal-open>Order Service</button>
             </div>
 
             
@@ -401,9 +401,10 @@
 
 <!-- overlay -->
 
-<div class="backdrop is-open" data-menu-open>
+<div class="backdrop " data-modal>
+    <!-- up, div class "is open" -->
     <div class="modal">
-        <button class="modal-form-button" type="button" data-menu-close>
+        <button class="modal-form-button" type="button" data-modal-close>
             <svg class="close-button" width="8" height="8">
                 <use href="./images/icons.svg#icon-cross"></use>
             </svg>
@@ -464,5 +465,8 @@
         </form>
     </div>
 </div>
+
+<script src="./js/modal.js"></script>
+
 </body>
 </html>
